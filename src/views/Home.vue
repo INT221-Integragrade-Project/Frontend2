@@ -3,7 +3,7 @@
     <div id="left">
       <div id="logo">
         <img alt="Mobile shop logo" src="../assets/logo2.png" width="500" />
-        <HelloWorld msg="Welcome to Your Vue.js App" />
+        <!-- <HelloWorld msg="Welcome to Your Vue.js App" /> -->
       </div>
     </div>
     <div id="right">

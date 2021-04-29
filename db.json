@@ -1,1 +1,179 @@
-{"photos": [{"id": 1, "src": "images/1.jpg", "title": "Autumn", "favor": false,"like": 0 },{"id": 2,"src": "images/2.jpg","title": "Hug & Love", "favor": false,"like": 0}]}
+{
+    "products": [{
+            "productid": "PA1",
+            "productname": "iPad gen8",
+            "price": 10900.0,
+            "warranty": 1,
+            "menufacturrerdate": "2020-10-02",
+            "capacity": 64,
+            "description": "10.2-inch display, Supports Apple Pencil (1st generation), A12 Bionic chip with Neural Engine,  8 MP wide camera, 3,687 mAh battery",
+            "images": "PA1",
+            "brandid": "B0001"
+        },
+        {
+            "productid": "PA2",
+            "productname": "iPad Pro 2020",
+            "price": 27900.0,
+            "warranty": 1,
+            "menufacturrerdate": "2020-03-20",
+            "capacity": 128,
+            "description": "11-inch and 12-inch display, Supports Apple Pencil (2nd generation) and Smart Keyboard, A12Z Bionic chip with Neural Engine, 12 MP wide camera and 10 MP ultrawide cameram 7,812 mAh battery",
+            "images": "PA2",
+            "brandid": "B0001"
+        },
+        {
+            "productid": "PA3",
+            "productname": "iPhone 12 Pro Max",
+            "price": 36900.0,
+            "warranty": 1,
+            "menufacturrerdate": "2020-11-26",
+            "capacity": 128,
+            "description": "triple camera resolution 12+12+12 MP + LiDAR sensor, 6.7-inch OLED Super Retina XDR display resolution 2778 x 1284 pixels, CPU Apple A14 Bionic, 3,687 mAh battery",
+            "images": "PA3",
+            "brandid": "B0001"
+        },
+        {
+            "productid": "PA4",
+            "productname": "iPhone SE",
+            "price": 14900.0,
+            "warranty": 1,
+            "menufacturrerdate": "2020-05-14",
+            "capacity": 64,
+            "description": "12 Mpx rear camera and 7 Mpx front camera, 4.7-inch Retina IPS LCD display resolution 750 × 1,334 pixels , 326 ppi, Apple A13 Bionic, Hexa-core (2x2.65 GHz Lightning + 4x1.8 GHz Thunder)",
+            "images": "PA4",
+            "brandid": "B0001"
+        },
+        {
+            "productid": "PO1",
+            "productname": "OPPO Find X3 Pro",
+            "price": 33990.0,
+            "warranty": 1,
+            "menufacturrerdate": "2021-04-01",
+            "capacity": 256,
+            "description": "6.7-inch LTPO Super AMOLED display resolution 750 × 1,334 pixel , 326 ppi, 120 Hz refresh rate, resolution of 1440 x 3216 pixels, 4 rear cameras: 50 MP main lens (f / 1.7) + 13 MP periscope telephoto lens (f /3.0) + 50 MP ultrawide lens (f / 2.2) + 3 MP macro lens, RAM 8/12 GB, 4,500 mAh battery",
+            "images": "PO1",
+            "brandid": "B0002"
+        },
+        {
+            "productid": "PO2",
+            "productname": "OPPO FIND X2",
+            "price": 33990.0,
+            "warranty": 1,
+            "menufacturrerdate": "2021-03-06",
+            "capacity": 256,
+            "description": "6.7-inch display resolution 1440 x 3168 pixel , 513 ppi, triple camera resolution 48+13+12 MP and front camera (32 MP), RAM 12 GB, 4,200 mAh battery",
+            "images": "PO2",
+            "brandid": "B0002"
+        },
+        {
+            "productid": "PO3",
+            "productname": "OPPO Reno4",
+            "price": 11990.0,
+            "warranty": 1,
+            "menufacturrerdate": "2020-07-20",
+            "capacity": 128,
+            "description": "6.4-inch OLED display, dual front camera, resolution 32 MP + 2 MP (distance sensor), 48 MP main camera with OIS system, RAM 8 GB, 4,000 mAh battery",
+            "images": "PO3",
+            "brandid": "B0002"
+        },
+        {
+            "productid": "PO4",
+            "productname": "OPPO A74",
+            "price": 8999.0,
+            "warranty": 1,
+            "menufacturrerdate": "2021-04-14",
+            "capacity": 128,
+            "description": "6.5-inch IPS-LCD 24-bit display (16 million colors) , resolution 1080 x 2400 pixels , 405 ppi, quad camera, resolution 48 MP + 8 MP (Ultrawide) + 2 MP (Depth) + 2 MP (Macro), 48 MP main camera with OIS system, RAM 8 GB, 5,000 mAh battery",
+            "images": "PO4",
+            "brandid": "B0002"
+        },
+        {
+            "productid": "PS1",
+            "productname": "Samsung Galaxy A72",
+            "price": 13999.0,
+            "warranty": 1,
+            "menufacturrerdate": "2021-03-18",
+            "capacity": 128,
+            "description": "6.7-inch Super AMOLED display , resolution 1080 x 2400 pixels , 393 ppi, rear camera (64 Mpx) and front camera (32 Mpx), RAM 8 GB, 5,000 mAh battery",
+            "images": "PS1",
+            "brandid": "B0003"
+        },
+        {
+            "productid": "PS2",
+            "productname": "Samsung Galaxy Note20 Ultra 5G",
+            "price": 38900.0,
+            "warranty": 1,
+            "menufacturrerdate": "2020-08-06",
+            "capacity": 256,
+            "description": "6.9-inch Dynamic AMOLED 2X display , resolution 1,440 × 3,200 pixels , 511 ppi, rear camera (108 Mpx) and front camera (10 Mpx), RAM 8/12 GB, 5,000 mAh battery",
+            "images": "PS2",
+            "brandid": "B0003"
+        },
+        {
+            "productid": "PS3",
+            "productname": "Samsung Galaxy S21 5G",
+            "price": 29900.0,
+            "warranty": 1,
+            "menufacturrerdate": "2021-01-15",
+            "capacity": 128,
+            "description": "6.2-inch display , resolution 1080 x 2400 pixels , 421 ppi, triple camera 12 MP + 12 MP (Ultrawide) + 64 MP (Telephoto), RAM 8 GB, 4,000 mAh battery",
+            "images": "PS3",
+            "brandid": "B0003"
+        },
+        {
+            "productid": "PS4",
+            "productname": "Samsung Galaxy Z Flip",
+            "price": 4900.0,
+            "warranty": 1,
+            "menufacturrerdate": "2020-02-12",
+            "capacity": 256,
+            "description": "6.7-inch Dynamic AMOLED 24-bit display (16 million colors) , resolution 1080 x 2636 pixels , 425 ppi, dual camera 12 MP + 12 MP, RAM 8 GB, 3,3000 mAh battery",
+            "images": "PS4",
+            "brandid": "B0003"
+        },
+        {
+            "productid": "PV1",
+            "productname": "Vivo X50 Pro",
+            "price": 24999.0,
+            "warranty": 1,
+            "menufacturrerdate": "2020-09-08",
+            "capacity": 256,
+            "description": "6.56 -inch AMOLED 24-bit display (16 million colors) , resolution 1080 x 2376 pixels , 398 ppi, camera 48 MP + 8 MP (Periscope telephoto) + 13 MP (Portrait) + 8 MP, RAM 8 GB, 4,315 mAh battery",
+            "images": "PV1",
+            "brandid": "B0004"
+        },
+        {
+            "productid": "PV2",
+            "productname": "Vivo V20 Pro",
+            "price": 14999.0,
+            "warranty": 1,
+            "menufacturrerdate": "2020-09-22",
+            "capacity": 128,
+            "description": "6.44 -inch AMOLED 24-bit display (16 million colors) , resolution 1080 x 2400 pixels, triple camera 64 MP + 8 MP (Ultrawide) + 2 MP (Mono), RAM 8 GB, 4,000 mAh battery",
+            "images": "PV2",
+            "brandid": "B0004"
+        },
+        {
+            "productid": "PV3",
+            "productname": "Vivo Y50",
+            "price": 7999.0,
+            "warranty": 1,
+            "menufacturrerdate": "2020-04-08",
+            "capacity": 128,
+            "description": "6.53 -inch IPS-LCD 24-bit display (16 million colors) , resolution 1080 x 2400 pixels , 403 ppi, quad camera 13 MP + 8 MP (Ultrawide) + 2 MP (Macro) + 2 MP (Depth), RAM 6/8 GB, 5,000 mAh battery",
+            "images": "PV3",
+            "brandid": "B0004"
+        },
+        {
+            "productid": "PV4",
+            "productname": "Vivo Y1s",
+            "price": 2999.0,
+            "warranty": 1,
+            "menufacturrerdate": "2020-10-27",
+            "capacity": 32,
+            "description": "6.22 -inch IPS-LCD 24-bit display (16 million colors) , resolution 720 x 1520 pixels , 270 ppi, 13 MP digital camera, RAM 2 GB, 4,030 mAh battery",
+            "images": "PV4",
+            "brandid": "B0004"
+        }
+    ]
+}
