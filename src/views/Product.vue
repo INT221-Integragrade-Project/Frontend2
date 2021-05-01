@@ -16,28 +16,15 @@
         <option value="VIVO">VIVO</option>
       </select>
     </div>
-    <product-list
-      :product="product"
+    <product-list 
       v-for="product in products"
-      :key="product.id"
-    >
-    </product-list>
-    <div>
-      <div id="productlist" class="p-5">
-        <div>
-          <img alt="Mobile shop logo" src="../assets/logo2.png" width="250" />
-        </div>
-        <div id="productdescription">
-          <p>PRODUCT NAME | </p>
-          <p>PRICE : </p>
-        </div>
-      </div>
-    </div>
+      :product="product"
+      :key="product.productid"
+    ></product-list>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
 import ProductList from "@/components/ProductList.vue";
 
 export default {
@@ -46,51 +33,31 @@ export default {
     ProductList,
   },
   props: {
-    product: Object,
-    // type: String,
-    // resetpage: Boolean,
+    type: String,
+    resetpage: Boolean,
   },
   data() {
     return {
       products: [],
     };
   },
-  // async created() {
-  //   fetch("http://localhost:3000/products")
-  //   .then(res) = res.json()
-  //   .then(data) = (this.products = data)
-  //   .then() => {
-  //     if(!this.resetpage) {
-  //       this.products = this.products.filter(product) => {
-  //         return product.Type.toLowerCase() === this.Type.toLowerCase();
-  //       };
-  //     }
-  //   })
-  //   .catch(error) => console.log(error);
-  // },
-
-  // async getProducts() {
-  //   let url = "http://localhost:3000/products";
-  //   try {
-  //     let res = await fetch(url);
-  //     return await res.json();
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // },
-
-  async getProducts() {
-    await fetch("http://localhost:5000/products")
-      .then((res) => res.json())
-      .then((data) => {
-        this.items = data.sort((a, b) => {
-          if (a.brand > b.brand) return 1;
-          if (a.brand < b.brand) return -1;
-          return 0;
-        });
-      });
+  methods: {
+    async fetchProducts() {
+      try {
+        const res = await fetch("http://localhost:3000/products");
+        const data = await res.json();
+        return data;
+      } catch (error) {
+        console.log(error);
+      }
+    },
+  },
+  async created() {
+    this.products = await this.fetchProducts();
+    console.log(this.products);
   },
 };
+
 </script>
 
 <style>
