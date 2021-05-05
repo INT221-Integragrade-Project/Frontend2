@@ -22,21 +22,21 @@ export default {
       products: [],
     };
   },
-  methods: {
-    async fetchProducts() {
-      try {
-        const res = await fetch("http://localhost:3000/products");
-        const data = await res.json();
-        return data;
-      } catch (error) {
-        console.log(error);
-      }
-    },
-  },
-  async created() {
-    this.products = await this.fetchProducts();
-    console.log(this.products);
-  },
+  // methods: {
+  //   async fetchProducts() {
+  //     try {
+  //       const res = await fetch("http://localhost:3000/products");
+  //       const data = await res.json();
+  //       return data;
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  //   },
+  // },
+  // async created() {
+  //   this.products = await this.fetchProducts();
+  //   console.log(this.products);
+  // },
 };
 </script>
 
@@ -51,6 +51,8 @@ export default {
   border: 15px;
   padding: 50px;
   margin: 20px;
+
+  flex: flex;
 }
 
 #productdescription {

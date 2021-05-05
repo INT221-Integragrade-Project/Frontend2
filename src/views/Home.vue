@@ -7,7 +7,7 @@
       </div>
     </div>
     <div id="right">
-      <div id="description">
+      <div id="description" class ="text-center">
         <h1>MOBILE SHOP</h1>
         <p>
           A website that combines many different brands of smartohone<br />
@@ -15,6 +15,7 @@
           You can choose to view the product<br />
           and you can add a list of products on this website
         </p>
+        <br />
         <div id="button">
           <p>GO TO MOBILE PRODUCTS PAGE</p>
         </div>
@@ -49,9 +50,11 @@
   font-weight: bold;
 }
 
-#description button {
+#button {
+  font-weight: bold;
   font-size: 100%;
   font-family: Arial;
+  background-color: #FEE9E4;
 }
 
 </style>

@@ -1,15 +1,14 @@
 <template>
-  <div class="product">
+  <div class="text-center">
     <h1>MOBILE PRODUCTS</h1>
-    <div id="subnav">
-      <ul>
+    <!-- <div id="subnav">
         <li class="p-2">VIEW PRODUCT</li>
         <li class="p-2">ADD PRODUCT</li>
         <li class="p-2">COMPARISON</li>
-      </ul>
-    </div>
+    </div> -->
     <div id="brand">
       <select name="brands" id="brands">
+        <option value="default">SELECT BRAND</option>
         <option value="APPLE">APPLE</option>
         <option value="OPPO">OPPO</option>
         <option value="SAMSUNG">SAMSUNG</option>

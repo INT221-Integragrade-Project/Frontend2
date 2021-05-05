@@ -1,7 +1,8 @@
 <template>
-  <div id="nav" class="">
-    <router-link to="/">Home</router-link> |
+  <div id="nav" class="text-center">
+    <router-link to="/">MOBILE SHOP</router-link> |
     <router-link to="/product">Product</router-link> |
+    <router-link to="/addproduct">AddProduct</router-link> |
     <router-link to="/team">Team</router-link>
   </div>
   <router-view/>
@@ -16,7 +17,7 @@ body {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
+  /* text-align: center; */
   color: #2c3e50;
 }
 
@@ -28,7 +29,7 @@ body {
   }
 
 #nav a {
-  font-weight: bold;
+  font-weight: 2  00;
   color: #2c3e50;
 }
 
