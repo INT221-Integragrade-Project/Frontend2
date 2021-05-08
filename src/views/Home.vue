@@ -17,7 +17,7 @@
         </p>
         <br />
         <div id="button">
-          <p>GO TO MOBILE PRODUCTS PAGE</p>
+          <router-link to="/product"><button>GO TO MOBILE PRODUCTS PAGE</button></router-link>
         </div>
       </div>
     </div>
@@ -51,6 +51,8 @@
 }
 
 #button {
+  height: 50px;
+  width: 400px;
   font-weight: bold;
   font-size: 100%;
   font-family: Arial;

@@ -1,15 +1,18 @@
 <template>
-  <div id="nav" class="text-center">
-    <router-link to="/">MOBILE SHOP</router-link> |
-    <router-link to="/product">Product</router-link> |
-    <router-link to="/addproduct">AddProduct</router-link> |
-    <router-link to="/team">Team</router-link>
+  <div id="nav" class="">
+    <div class="float-left mx-5">
+      <router-link to="/">MOBILE SHOP</router-link>
+    </div>
+    <div class="float-right mx-5">
+      <router-link to="/product" class="mx-5">PRODUCTS</router-link>
+      <router-link to="/add" class="mx-5">ADD PRODUCT</router-link>
+      <router-link to="/team" class="mx-5">TEAM</router-link>
+    </div>
   </div>
-  <router-view/>
+  <router-view />
 </template>
 
 <style>
-
 body {
   margin: 0px;
 }
@@ -23,17 +26,17 @@ body {
 
 #nav {
   padding: 10px;
-  background-color: #FEE9E4;
+  background-color: #fee9e4;
   font-size: 125%;
   font-family: Avenir, Helvetica, Arial, sans-serif;
-  }
+}
 
 #nav a {
-  font-weight: 2  00;
+  font-weight: 2 00;
   color: #2c3e50;
 }
 
 #nav a.router-link-exact-active {
-  color: #FF838A;
+  color: #ff838a;
 }
 </style>

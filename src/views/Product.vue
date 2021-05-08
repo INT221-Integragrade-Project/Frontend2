@@ -6,7 +6,7 @@
         <li class="p-2">ADD PRODUCT</li>
         <li class="p-2">COMPARISON</li>
     </div> -->
-    <div id="brand">
+    <!-- <div id="brand">
       <select name="brands" id="brands">
         <option value="default">SELECT BRAND</option>
         <option value="APPLE">APPLE</option>
@@ -14,12 +14,15 @@
         <option value="SAMSUNG">SAMSUNG</option>
         <option value="VIVO">VIVO</option>
       </select>
-    </div>
+    </div> -->
     <product-list 
+    class = "flex flex-col"
       v-for="product in products"
       :product="product"
       :key="product.productid"
-    ></product-list>
+    >
+    
+    </product-list>
   </div>
 </template>
 
@@ -43,7 +46,7 @@ export default {
   methods: {
     async fetchProducts() {
       try {
-        const res = await fetch("http://localhost:3000/products");
+        const res = await fetch("http://104.215.139.17:3000/show");
         const data = await res.json();
         return data;
       } catch (error) {
@@ -66,33 +69,4 @@ h1 {
   font-weight: bold;
 }
 
-ul {
-  display: inline;
-  list-style-type: none;
-}
-
-li {
-  display: block;
-  /* background-color: gray; */
-}
-
-/* #subnav {
-  margin-left: 80px;
-  background: gray;
-} */
-
-#brand {
-  text-align: center;
-}
-
-/* #productlist {
-  margin: 30px;
-  outline-style: solid;
-  outline-width: 1px;
-  outline-color: #d3d3d3;
-}
-
-#productdescription {
-  text-align: left;
-} */
 </style>

@@ -13,15 +13,21 @@ const routes = [
     component: () => import('../views/Product.vue')
   },
   {
-    path: '/addproduct',
-    name: 'AddProduct',
+    path: '/add',
+    name: 'Add',
     component: () => import('../views/AddProduct.vue')
   },
   {
     path: '/team',
     name: 'Team',
     component: () => import('../views/Team.vue')
-  }
+  },
+  {
+    path: '/show/:id',
+    name: 'Product1',
+    props: true , 
+    component: () => import('../views/ProductDescription.vue')
+  },
 ]
 
 const router = createRouter({

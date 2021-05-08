@@ -4,4 +4,21 @@
   </div>
 </template>
 
---- import form ---
+<script>
+import EditProductForm from "@/components/EditProductForm.vue";
+
+export default {
+  name: 'Home',
+  components: {
+    EditProductForm
+  }
+}
+</script>
+
+<style>
+h1 {
+  margin: 30px;
+  font-size: 250%;
+  font-weight: bold;
+}
+</style>
