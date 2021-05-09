@@ -241,6 +241,7 @@ export default {
       manudate: "",
       description: "",
       capacity: 0 ,
+      image: "",
       url: "http://localhost:3000/products",
       previewImage: null,
       activeClose: true,
@@ -317,9 +318,6 @@ export default {
           brand: this.brands.find((brand) => {
             return brand.brandName == this.brandAdd;
           }),
-          // type: this.types.find((type) => {
-          //   return type.typeName == this.type;
-          // }),
           price: Number(this.price),
           colors: this.colorsAdd,
           description: this.description,
@@ -333,15 +331,11 @@ export default {
           setTimeout(() => {
             this.restart();
           }, 1000);
-          // this.$router.push("/");
-          // console.log(body);
         } else {
           this.addProduct(body);
           setTimeout(() => {
             this.restart();
           }, 1000);
-          // this.$router.push("/");
-          // console.log(body);
         }
       }
     },
@@ -379,6 +373,7 @@ export default {
     },
     onFileChange(event) {
       let files = event.target.files || event.dataTransfer.files;
+      this.image = files[0].name;
       if (!files.length) return;
       this.createImage(files[0]);
       this.activeClose = true;
@@ -441,28 +436,28 @@ export default {
         this.isLoad = false;
       }
     },
-    // createNewProduct() {
-    //   // fetch ("http://104.215.139.17:3000/add")
-    //         fetch(`http://104.215.139.17:3000/add`, {
-    //     method: "POST",
-    //     headers: {
-    //       "content-type": "application/json",
-    //     },
-
-    //   })
-    // }
+    createNewProduct() {
+            fetch(`http://104.215.139.17:3000/add`, {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: {
+          body: {
+          productname: this.name,
+          price: this.price,
+          warranty: this.warranty,
+          menufacturrerdate: this.manudate,
+          capacity: this.capacity,
+          description: this.description,
+          images: this.image,
+          brandid: this.brandid,
+        },
+        }
+      })
+    }
   },
   async created() {
-    await fetch("http://localhost:9091/product/list")
-      .then((res) => res.json())
-      .then(
-        (data) =>
-          (this.productIds = data.map((pid) => {
-            return pid.productId;
-          }))
-      )
-      .catch((error) => console.log(error));
-
     await fetch("http://localhost:9091/color/list")
       .then((res) => {
         this.isLoad = true;

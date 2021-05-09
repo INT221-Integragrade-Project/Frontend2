@@ -3,7 +3,7 @@
   <div>
     <div id="productlist" class="p-5 flex flex-col">
       <div class="overflow-hidden w-full relative pb-5">
-        <img alt="Mobile shop logo" src="../assets/16Product/PA1.png" width="250"/>
+        <img :src ="`http://104.215.139.17:3000/file/${product.images}`" width="250"/>
       </div>
       <div id="productdescription" class="">
         <!-- <p>//image = {{ product.images }}</p> -->

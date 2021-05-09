@@ -4,21 +4,16 @@
   </div>
 
   <div
-    class="relative grid max-w-4xl px-8 pt-4 pb-10 mx-auto bg-gray-100 sm:grid-cols-2 grid-rows-1"
+    class="relative grid max-w-4xl px-8 pt-4 pb-10 mx-auto sm:grid-cols-2 grid-rows-1"
   >
     <div>
       <img
-        src ="http://104.215.139.17:3000/file/`${product.images}`" class="w-96" />
+        :src="`http://104.215.139.17:3000/file/${product.images}`"
+        class="w-96"
+      />
     </div>
 
-    <!-- <div>
-      <span class="dot"></span>
-      <span class="dot"></span>
-      <span class="dot"></span>
-      <span class="dot"></span>
-    </div> -->
-
-    <div>
+    <div class="mt-10">
       <span>
         <p><b>PRODUCT NAME |</b> {{ product.productname }}</p>
         <br />
@@ -27,7 +22,20 @@
         <p><b>BRAND :</b> {{ brand.brandname }}</p>
         <p><b>PRICE :</b> {{ product.price }}</p>
         <p><b>WARRANTY :</b> {{ product.warranty }}</p>
+        
+    <div>
+      <input @click="editProduct" type="submit" value="EDIT" class="absolute z-10 rounded shadow-md cursor-pointer btn right-20 bottom-10" />
+      <input @click="deleteProduct" type="submit" value="DELETE" class="absolute z-10 rounded shadow-md cursor-pointer btn right-0 bottom-10 text-red-500" />
+    </div>
       </span>
+    </div>
+    
+
+    <div class="pt-5">
+      <span class="dot mr-2"></span>
+      <span class="dot mr-2"></span>
+      <span class="dot mr-2"></span>
+      <span class="dot mr-2"></span>
     </div>
   </div>
 </template>
@@ -63,6 +71,11 @@ export default {
   },
 
   methods: {
+    // async deleteProduct() {
+    //   const res = await fetch("http://104.215.139.17:3000", {
+    //     method: 'DELETE'
+    //   })
+    // },
     async fetchProduct() {
       try {
         const res = await fetch("http://104.215.139.17:3000/show/" + this.id);
@@ -83,10 +96,10 @@ export default {
         console.log(error);
       }
     },
-    // async fetchPicture() {
+    // async fetchColors() {
     //   try {
     //     const res = await fetch(
-    //       "http://104.215.139.17:3000/file/" + this.product.images
+    //       "http://104.215.139.17:3000/showbrand/" + this.product.brandid
     //     );
     //     const data = await res.json();
     //     return data;
@@ -98,10 +111,9 @@ export default {
   async created() {
     this.product = await this.fetchProduct();
     this.brand = await this.fetchBrand();
-    this.image = await this.fetchPicture();
+    // this.colors = await this.fetchColors();
     console.log(this.product);
     console.log(this.brand);
-    // console.log(this.image);
     console.log(Number(this.id));
   },
 };

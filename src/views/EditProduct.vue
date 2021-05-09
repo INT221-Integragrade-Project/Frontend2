@@ -1,18 +1,19 @@
 <template>
   <div class="text-center">
     <h1>EDIT PRODUCT</h1>
+    <product-form></product-form>
   </div>
 </template>
 
 <script>
-import EditProductForm from "@/components/EditProductForm.vue";
+import ProductForm from "@/components/ProductForm.vue";
 
 export default {
-  name: 'Home',
+  name: "Form",
   components: {
-    EditProductForm
-  }
-}
+    ProductForm,
+  },
+};
 </script>
 
 <style>

@@ -81,113 +81,7 @@
       <input @click="validating" type="submit" value="SAVE" class="absolute z-10 rounded shadow-md cursor-pointer btn left-4" />
     </form>
   </div>
-  <!-- <button>SAVE</button> -->
 
-  <!-- ---------------------------------------------------------------------------------------------------------- -->
-
-<!-- <div class="mt-20 lg:mt-24" v-show="!isLoad">
-        <form @submit.prevent="submitForm">
-            <div class="relative grid max-w-6xl px-8 pt-4 pb-10 mx-auto bg-white rounded shadow-md dark:bg-gray-700 sm:grid-cols-2"> -->
-                <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ L ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-                <!-- <div>
-                    <div class="relative px-3 mb-6 lg:w-full md:mb-0">
-                        <label class="label-css" for="brand">Brand *</label>
-                        <select class="input-css" id="brandAdd" v-model="brandAdd" required :class="{ 'ring ring-red-400': invalid_brand }">
-                            <option value="" disabled selected>[ Select Brand ]</option>
-                            <option v-for="brand in brands" :key="brand.brandId" :value="brand.brandName" class="text-lg ">{{ brand.brandName }}</option>
-                        </select>
-                        <span v-if="invalid_brand" class="absolute -bottom-1 left-9 p-3 font-mono text-red-500 ">Please select Brand</span>
-                    </div>
-
-                    <div class="px-3 mb-6 lg:w-full md:mb-0 relative">
-                        <label class="label-css" for="">Name *</label>
-                        <input v-model.trim="name" class="input-css" id="" type="text" placeholder="product name" required :class="{ 'ring ring-red-400': invalid_name }" />
-                        <span v-if="invalid_name" class="absolute -bottom-1 left-9 p-3 font-mono text-red-500 ">Please input name</span>
-                    </div>
-
-                    <div class="flex flex-col md:flex-row lg:w-full">
-                        <div class="md:w-1/2 px-3 mb-6 md:mb-0 relative">
-                            <label class="label-css" for="price">Price *</label>
-                            <input v-model="price" step="0.01" class="input-css" id="price" type="number" placeholder="" min="1" max="99999" required :class="{ 'ring ring-red-400': invalid_price }" />
-                            <span v-if="invalid_price" class="absolute -bottom-1 left-9 p-3 font-mono text-red-500 ">Please select Brand</span>
-                        </div>
-
-                        <div class="md:w-1/2 px-3 mb-6 md:mb-0">
-                            <label class="label-css" for="grid-state">Type *</label>
-                            <div class="relative ">
-                                <select class="input-css" id="type" v-model="type" required :class="{ 'ring ring-red-400': invalid_type }">
-                                    <option value="" disabled selected>[ Select Type ]</option>
-                                    <option v-for="type in types" :key="type.id" :value="type.typeName">{{ type.typeName }}</option>
-                                </select>
-                                <span v-if="invalid_type" class="absolute -bottom-1 left-5 p-3 font-mono text-red-500 ">Please select type</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="relative px-3 mb-6 lg:w-full md:mb-0">
-                        <label class="label-css" for="description">Description</label>
-                        <textarea class="input-css h-40" id="description" v-model="description" type="text" placeholder="" />
-                    </div>
-
-                    <div class="relative px-3 mb-6 lg:w-full md:mb-0">
-                        <label class="label-css" for="previewImage">color *</label>
-                        <div class="input-css " :class="{ 'ring ring-red-400': invalid_Color }">
-                            <div class="flex flex-wrap">
-                                <div v-for="(color, index) in colors" :key="color.colorId">
-                                    <base-color :color="color" @active-color="active($event, index)" />
-                                </div>
-                            </div>
-                        </div>
-                        <span v-if="invalid_Color" class="absolute p-3 font-mono text-red-500 left-7 -bottom-3 ">Please select product color</span>
-                    </div>
-
-                    <input @click="validating" type="submit" value="Add Product" class="absolute z-10 rounded shadow-md cursor-pointer btn bottom-4 right-4" />
-                </div> -->
-
-                <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Right ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-
-                <!-- <div>
-                    <div class="px-3 mb-6 lg:w-full md:mb-0 relative">
-                        <label class="label-css" for="previewImage">Launch date *</label>
-                        <input type="date" class="input-css" v-model="launchDate" required :class="{ 'ring ring-red-400': invalid_date }" />
-                        <span v-if="invalid_date" class="absolute p-3 font-mono text-red-500 left-7 -bottom-1">Please input date</span>
-                    </div>
-
-                    <div class="px-3 mb-6 lg:w-full md:mb-0">
-                        <label class="label-css">Warranty</label>
-                        <div class="flex flex-col md:flex-row input-css">
-                            <div class="flex items-center mr-7">
-                                <input type="radio" id="0" name="warranty" v-model="warranty" value="0" class="w-4 h-5 mr-2" />
-                                <label for="0">none</label>
-                            </div>
-                            <div class="flex items-center mr-7">
-                                <input type="radio" id="1" name="warranty" v-model="warranty" value="1" class="w-4 h-5 mr-2" />
-                                <label for="1">1 year</label>
-                            </div>
-                            <div class="flex items-center mr-7">
-                                <input type="radio" id="2" name="warranty" v-model="warranty" value="2" class="w-4 h-5 mr-2" />
-                                <label for="2">2 year</label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="px-3 mb-6 lg:w-full md:mb-0 relative" :class="{ hidden: activeClose }">
-                        <label class="label-css" for="description">File *</label>
-                        <input class="input-css" id="file" v-on:change="onFileChange($event)" type="file" :class="{ 'ring ring-red-400': invalid_img }" />
-                        <span v-if="invalid_img" class="absolute p-3 font-mono text-red-500 left-7 -bottom-1 ">Please choose image</span>
-                    </div>
-
-                    <div class="px-3 mb-6 lg:w-full md:mb-0" :class="{ hidden: !activeClose }">
-                        <label class="label-css" for="previewImage">Preview</label>
-                        <div class="relative input-css">
-                            <span class="absolute p-1 text-white bg-blue-700 rounded-full cursor-pointer material-icons top-2 right-2" @click="removeImage()">close</span>
-                            <img :src="previewImage" alt="Preview Image" class="max-h-80" />
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </form>
-    </div> -->
     <div v-show="isLoad" class="h-screen w-full flex items-center justify-center">
         <i class="material-icons text-4xl animate-pulse" v-show="isLoad"> loading . .</i>
     </div>
@@ -226,7 +120,7 @@ export default {
       name: "",
       price: 0,
       warranty: 0,
-      launchDate: "",
+      manuDate: "",
       types: [],
       type: "",
       description: "",
@@ -256,7 +150,7 @@ export default {
       this.invalid_price = this.price === 0 ? true : false;
       this.invalid_type = this.type === "" ? true : false;
       this.invalid_Color = this.colorsAdd.length === 0 ? true : false;
-      this.invalid_date = this.launchDate === "" ? true : false;
+      this.invalid_date = this.manuDate === "" ? true : false;
       this.invalid_img = this.previewImage === null ? true : false;
       setTimeout(() => {
         this.invalid_brand = false;
@@ -288,7 +182,7 @@ export default {
         this.price !== 0 &&
         this.type !== "" &&
         this.colorsAdd.length !== 0 &&
-        this.launchDate !== "" &&
+        this.manuDate !== "" &&
         this.previewImage !== null
       ) {
         let newId =
@@ -311,7 +205,7 @@ export default {
           colors: this.colorsAdd,
           description: this.description,
           warranty: Number(this.warranty),
-          launchDate: this.launchDate,
+          manuDate: this.manuDate,
           imageUrl: "imageUrl.test",
         });
         if (this.itemId) {
@@ -337,7 +231,7 @@ export default {
       this.name = "";
       this.price = 0;
       this.warranty = 0;
-      this.launchDate = "";
+      this.manuDate = "";
       this.type = "";
       this.description = "";
       this.colors.forEach((color) => (color["active"] = false));
@@ -410,7 +304,7 @@ export default {
             this.price = data.price;
             this.description = data.description;
             this.warranty = data.warranty;
-            this.launchDate = data.launchDate;
+            this.manuDate = data.manuDate;
             for (let i = 0; i < this.colors.length; i++) {
               if (
                 data.colors.some((color) => {

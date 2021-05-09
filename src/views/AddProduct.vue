@@ -1,7 +1,7 @@
 <template>
   <div class="text-center">
-  <h1>ADD PRODUCT</h1>
-  <product-form></product-form>
+    <h1>ADD PRODUCT</h1>
+    <product-form></product-form>
   </div>
 </template>
 
@@ -9,11 +9,11 @@
 import ProductForm from "@/components/ProductForm.vue";
 
 export default {
-  name: 'Home',
+  name: "Form",
   components: {
-    ProductForm
-  }
-}
+    ProductForm,
+  },
+};
 </script>
 
 <style>

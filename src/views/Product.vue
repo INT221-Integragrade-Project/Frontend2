@@ -15,14 +15,14 @@
         <option value="VIVO">VIVO</option>
       </select>
     </div> -->
-    <product-list 
-    class = "flex flex-row"
+    <!-- <div class="flex flex-rows-4"> -->
+    <product-list
       v-for="product in products"
       :product="product"
       :key="product.productid"
     >
-    
     </product-list>
+    <!-- </div> -->
   </div>
 </template>
 
@@ -53,13 +53,22 @@ export default {
         console.log(error);
       }
     },
+    async fetchBrands() {
+      try {
+        const res = await fetch("http://104.215.139.17:3000/show/" + this.id);
+        const data = await res.json();
+        return data;
+      } catch (error) {
+        console.log(error);
+      }
+    },
   },
   async created() {
     this.products = await this.fetchProducts();
-    console.log(this.products);
+    this.brand = await this.fetchBrands();
+    console.log(this.id);
   },
 };
-
 </script>
 
 <style>
@@ -68,5 +77,4 @@ h1 {
   font-size: 250%;
   font-weight: bold;
 }
-
 </style>
