@@ -16,7 +16,7 @@
       </select>
     </div> -->
     <product-list 
-    class = "flex flex-col"
+    class = "flex flex-row"
       v-for="product in products"
       :product="product"
       :key="product.productid"

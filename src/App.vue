@@ -1,13 +1,15 @@
 <template>
-  <div id="nav" class="">
-    <div class="float-left mx-5">
-      <router-link to="/">MOBILE SHOP</router-link>
-    </div>
-    <div class="float-right mx-5">
-      <router-link to="/product" class="mx-5">PRODUCTS</router-link>
-      <router-link to="/add" class="mx-5">ADD PRODUCT</router-link>
-      <router-link to="/team" class="mx-5">TEAM</router-link>
-    </div>
+  <div id="nav" class="text-center">
+    <!-- <div class="float-left"> -->
+    <router-link to="/" class="mx-5">MOBILE SHOP</router-link>
+    <!-- </div> -->
+    <!-- <div class="float-right"> -->
+    <router-link to="/product" class="mx-5">PRODUCTS</router-link>
+    <router-link to="/add" class="mx-5" @click="createNewProduct"
+      >ADD PRODUCT</router-link
+    >
+    <router-link to="/team" class="mx-5">TEAM</router-link>
+    <!-- </div> -->
   </div>
   <router-view />
 </template>
@@ -40,3 +42,31 @@ body {
   color: #ff838a;
 }
 </style>
+
+<script>
+export default {
+  methods: {
+    createNewProduct() {
+      // fetch ("http://104.215.139.17:3000/add")
+      fetch(`http://104.215.139.17:3000/add`, {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: {
+          productid: 0,
+          productname: "",
+          price: 0,
+          warranty: 0,
+          menufacturrerdate: "",
+          capacity: 0,
+          description:"",
+          images: "",
+          brandid: 0,
+        },
+      });
+    },
+  },
+};
+</script>
+

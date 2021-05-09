@@ -1,5 +1,5 @@
 <template>
   <div class="text-center">
-    <h1>Team</h1>
+    <h1>TEAM</h1>
   </div>
 </template>

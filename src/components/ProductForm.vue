@@ -441,6 +441,16 @@ export default {
         this.isLoad = false;
       }
     },
+    // createNewProduct() {
+    //   // fetch ("http://104.215.139.17:3000/add")
+    //         fetch(`http://104.215.139.17:3000/add`, {
+    //     method: "POST",
+    //     headers: {
+    //       "content-type": "application/json",
+    //     },
+
+    //   })
+    // }
   },
   async created() {
     await fetch("http://localhost:9091/product/list")

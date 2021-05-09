@@ -6,7 +6,7 @@
         <img alt="Mobile shop logo" src="../assets/16Product/PA1.png" width="250"/>
       </div>
       <div id="productdescription" class="">
-        <p>//image = {{ product.images }}</p>
+        <!-- <p>//image = {{ product.images }}</p> -->
         <p>PRODUCT NAME | {{ product.productname }}</p>
         <p>PRICE : {{ product.price }}</p>
       </div>
