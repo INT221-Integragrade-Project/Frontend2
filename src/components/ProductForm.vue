@@ -216,6 +216,9 @@ export default {
         let body = JSON.stringify({
           productName: this.name,
           brandid: this.brandid,
+          brand: this.brands.find((brand) => {
+            return brand.brandName == this.addBrand;
+          }),
           price: Number(this.price),
           colors: this.newColors,
           description: this.description,
@@ -250,7 +253,7 @@ export default {
           this.brandid = this.brands[i].brandid;
         }
       }
-      // ---------- test ----------
+      // ---------- test log ----------
       console.log(this.name);
       console.log(this.manudate);
       console.log(this.description);
@@ -278,7 +281,7 @@ export default {
     },
 
     editProduct(body) {
-      fetch(`http://104.215.139.17:3000/edit`, {
+      fetch(`http://104.215.139.17:3000/edit/${this.productid}`, {
         method: "PUT",
         headers: {
           "content-type": "application/json",

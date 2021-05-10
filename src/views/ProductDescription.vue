@@ -102,8 +102,7 @@ export default {
         fetch("http://104.215.139.17:3000/deletefile?imagesdelete=" +  this.product.images , {
         method:'DELETE'
         })
-        console.log(this.id);
-        console.log(this.product.images);
+
     },
     editProduct() {
       this.$router.push('/edit/' + this.id);
