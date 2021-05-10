@@ -169,7 +169,7 @@ export default {
     };
   },
   props: {
-    productid: Number,
+    id: Number,
   },
   methods: {
     validating() {
@@ -214,7 +214,7 @@ export default {
         this.capacity !== 0
       ) {
         let body = JSON.stringify({
-          productName: this.name,
+          productname: this.name,
           brandid: this.brandid,
           brand: this.brands.find((brand) => {
             return brand.brandName == this.addBrand;
@@ -226,7 +226,7 @@ export default {
           manudate: this.manudate,
           capacity: Number(this.capacity),
         });
-        if (this.productid) {
+        if (this.id) {
           this.editProduct(body);
           setTimeout(() => {
             this.restart();
@@ -242,28 +242,32 @@ export default {
       for(let i=0 ; i<this.colors.length ; i++) {
         if(this.newColors[i] == true) {
           newcolorid.push(this.colors[i].colorid)
+
           this.colorparam += "colorid="+(this.colors[i].colorid).toString();
           if(this.newColors[i+1] == true) {
-            this.colorparam += "&";
+            this.colorparam += "&&";
           }
+
+
         }
       }
+      
       for(let i=0 ; i<this.brands.length ; i++) {
         if(this.addBrand == this.brands[i].brandname) {
           this.brandid = this.brands[i].brandid;
         }
       }
       // ---------- test log ----------
-      console.log(this.name);
-      console.log(this.manudate);
-      console.log(this.description);
-      console.log(this.capacity);
-      console.log(this.addBrand);
-      console.log(this.brandid);
-      console.log(this.image);
-      console.log(newcolorid);
-      console.log(this.price);
-      console.log(this.warranty);
+      // console.log(this.name);
+      // console.log(this.manudate);
+      // console.log(this.description);
+      // console.log(this.capacity);
+      // // console.log(this.addBrand);
+      // console.log(this.brandid);
+      // console.log(this.image);
+      // console.log(newcolorid);
+      // console.log(this.price);
+      // console.log(this.warranty);
       console.log(this.colorparam);
       console.log(`http://104.215.139.17:3000/add?${this.colorparam}`);
     },
@@ -281,7 +285,7 @@ export default {
     },
 
     editProduct(body) {
-      fetch(`http://104.215.139.17:3000/edit/${this.productid}`, {
+      fetch(`http://104.215.139.17:3000/edit/${this.id}`, {
         method: "PUT",
         headers: {
           "content-type": "application/json",
@@ -337,7 +341,7 @@ export default {
         headers: {
           "content-type": "application/json",
         },
-        body: {
+        body: JSON.stringify({
           productname: this.name,
           price: this.price,
           warranty: this.warranty,
@@ -346,8 +350,10 @@ export default {
           description: this.description,
           images: this.image,
           brandid: this.brandid,
-        }
+        })
       })
+
+      // console.log(body);
     },
     async fetchColors() {
       try {
