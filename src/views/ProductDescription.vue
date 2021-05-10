@@ -29,13 +29,14 @@
     </div>
       </span>
     </div>
+    <div class="dot mx-5"></div>
 
   </div>
 </template>
 
 <style>
 h1 {
-  margin: 30px;
+  margin: 5%;
   font-size: 250%;
   font-weight: bold;
   text-transform: uppercase;

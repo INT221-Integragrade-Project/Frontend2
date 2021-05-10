@@ -12,8 +12,8 @@
         <br>
 
         <div class="px-3 mb-6 lg:w-full md:mb-0 relative">
-          <p>MANUFACTURER DATE</p>
-            <input type="date" class="input-css" placeholder="manufacturer date" v-model="manudate" required :class="{ 'ring ring-red-400': invalid_date }" />
+          <p>MENUFACTURER DATE</p>
+            <input type="date" class="input-css" placeholder="menufacturer date" v-model="menudate" required :class="{ 'ring ring-red-400': invalid_date }" />
             <span v-if="invalid_date" class="absolute p-3 font-mono text-red-500 left-7 -bottom-1">Please input date</span>
         </div>
         <br>
@@ -34,11 +34,9 @@
         <div class="relative px-3 mb-6 lg:w-full md:mb-0">
           <p>SELECT BRAND</p>
             <select class="input-css" id="addBrand" v-model="addBrand" required :class="{ 'ring ring-red-400': invalid_brand }">
-              <option value="" disabled selected>[ Select Brand ]</option>
-              <option value="Apple">Apple</option>
-              <option value="Oppo">Oppo</option>
-              <option value="Samsung">Samsung</option>
-              <option value="Vivo">Vivo</option>
+
+              <option  v-for="brand in brands" :key="brand.brandid" :value="brand.brandid" >{{brand.brandname}}</option>
+
             </select>
           <span v-if="invalid_brand" class="absolute -bottom-1 left-9 p-3 font-mono text-red-500 ">Please select Brand</span>
         </div>
@@ -144,11 +142,11 @@ export default {
   data() {
     return {
       brands: [],
-      addBrand: "",
+      addBrand: Number,
       name: "",
       price: 0,
       warranty: 0,
-      manudate: "",
+      menudate: "",
       description: "",
       capacity: 0 ,
       image: "",
@@ -166,18 +164,22 @@ export default {
       colorparam: "",
       brandid: 0,
       isLoad: Boolean,
+      reqparam: "",
+      url: "",
     };
   },
   props: {
-    id: Number,
+    id: {
+      type: String,
+    },
   },
   methods: {
     validating() {
-      this.invalid_brand = this.addBrand === "" ? true : false;
+      this.invalid_brand = this.addBrand === 0 ? true : false;
       this.invalid_name = this.name === "" ? true : false;
       this.invalid_price = this.price === 0 ? true : false;
       this.invalid_Color = this.newColors.length === 0 ? true : false;
-      this.invalid_date = this.manudate === "" ? true : false;
+      this.invalid_date = this.menudate === "" ? true : false;
       this.invalid_img = this.previewImage === null ? true : false;
       this.invalid_capacity = this.capacity === 0 ? true : false;
       setTimeout(() => {
@@ -205,79 +207,59 @@ export default {
 
     submitForm() {
       if (
-        this.addBrand !== "" &&
+        this.addBrand !== 0 &&
         this.name !== "" &&
         this.price !== 0 &&
         this.newColors.length !== 0 &&
-        this.manudate !== "" &&
+        this.menudate !== "" &&
         this.previewImage !== null &&
         this.capacity !== 0
       ) {
-        let body = JSON.stringify({
-          productname: this.name,
-          brandid: this.brandid,
-          brand: this.brands.find((brand) => {
-            return brand.brandName == this.addBrand;
-          }),
-          price: Number(this.price),
-          colors: this.newColors,
-          description: this.description,
-          warranty: Number(this.warranty),
-          manudate: this.manudate,
-          capacity: Number(this.capacity),
-        });
+        // let body = JSON.stringify({
+        //   productname: this.name,
+        //   brandid: Number(this.brandid),
+        //   price: Number(this.price),
+        //   description: this.description,
+        //   warranty: Number(this.warranty),
+        //   menudate: this.menudate,
+        //   capacity: Number(this.capacity),
+        //   image: this.image,
+        // });
+
+        this.reqparam = `productname=${this.name}&price=${this.price}&warranty=${this.warranty}&menufacturrerdate=${this.menudate}&capacity=${this.capacity}&description=${this.description}&images=${this.image}&brandid=${this.addBrand}`;
+
         if (this.id) {
-          this.editProduct(body);
-          setTimeout(() => {
-            this.restart();
-          }, 1000);
+          this.editProduct();
+          // setTimeout(() => {
+          //   this.restart();
+          // }, 1000);
         } else {
           this.createNewProduct();
-          setTimeout(() => {
-            this.restart();
-          }, 1000);
+          // setTimeout(() => {
+          //   this.restart();
+          // }, 1000);
         }
       }
+
       let newcolorid = [];
       for(let i=0 ; i<this.colors.length ; i++) {
         if(this.newColors[i] == true) {
           newcolorid.push(this.colors[i].colorid)
 
-          this.colorparam += "colorid="+(this.colors[i].colorid).toString();
-          if(this.newColors[i+1] == true) {
-            this.colorparam += "&&";
-          }
-
-
+          this.reqparam += `&colorid=${this.colors[i].colorid}`;
         }
       }
-      
-      for(let i=0 ; i<this.brands.length ; i++) {
-        if(this.addBrand == this.brands[i].brandname) {
-          this.brandid = this.brands[i].brandid;
-        }
-      }
-      // ---------- test log ----------
-      // console.log(this.name);
-      // console.log(this.manudate);
-      // console.log(this.description);
-      // console.log(this.capacity);
-      // // console.log(this.addBrand);
-      // console.log(this.brandid);
-      // console.log(this.image);
-      // console.log(newcolorid);
-      // console.log(this.price);
-      // console.log(this.warranty);
-      console.log(this.colorparam);
-      console.log(`http://104.215.139.17:3000/add?${this.colorparam}`);
+
+      this.url = `http://104.215.139.17:3000/add?${this.reqparam}`;
+
     },
 
     restart() {
-      this.addBrand = "";
+      this.addBrand = 0;
       this.name = "";
       this.price = 0;
       this.warranty = 0;
-      this.manudate = "";
+      this.menudate = "";
       this.description = "";
       this.previewImage = null;
       this.capacity = 0;
@@ -285,7 +267,7 @@ export default {
     },
 
     editProduct(body) {
-      fetch(`http://104.215.139.17:3000/edit/${this.id}`, {
+      fetch("http://104.215.139.17:3000/edit/" + this.id , {
         method: "PUT",
         headers: {
           "content-type": "application/json",
@@ -293,6 +275,7 @@ export default {
         body: body,
       }).catch((error) => console.log(error));
     },
+
     onFileChange(event) {
       let files = event.target.files || event.dataTransfer.files;
       this.image = files[0].name;
@@ -321,12 +304,12 @@ export default {
             return res.json();
           })
           .then((data) => {
-            this.addBrand = data.brand.brandName;
+            // this.addBrand = data.brand.brandName;
             this.name = data.productName;
             this.price = data.price;
             this.description = data.description;
             this.warranty = data.warranty;
-            this.manudate = data.manudate;
+            this.menudate = data.menudate;
             this.capacity = data.capacity;
           })
           .catch((error) => console.log(error));
@@ -335,26 +318,29 @@ export default {
         this.isLoad = false;
       }
     },
-    createNewProduct() {
-            fetch(`http://104.215.139.17:3000/add?${this.colorparam}` , {
+    uploadImage() {
+      fetch(`http://104.215.139.17:3000/upload/${this.image}` , {
         method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify({
-          productname: this.name,
-          price: this.price,
-          warranty: this.warranty,
-          menufacturrerdate: this.manudate,
-          capacity: this.capacity,
-          description: this.description,
-          images: this.image,
-          brandid: this.brandid,
-        })
-      })
+      }).catch((error) => console.log(error));
 
-      // console.log(body);
     },
+    createNewProduct() {
+      this.uploadImage();
+      fetch( this.url , {
+        method: "POST",
+      }).catch((error) => console.log(error));
+
+    },
+    async fetchProducts() {
+      try {
+        const res = await fetch("http://104.215.139.17:3000/show");
+        const data = await res.json();
+        return data;
+      } catch (error) {
+        console.log(error);
+      }
+    },
+
     async fetchColors() {
       try {
         const res = await fetch("http://104.215.139.17:3000/showallcolor");
@@ -364,6 +350,7 @@ export default {
         console.log(error);
       }
     },
+
      async fetchBrands() {
       try {
         const res = await fetch("http://104.215.139.17:3000/showbrand");
@@ -374,7 +361,9 @@ export default {
       }
     },
   },
+
   async created() {
+    this.products = await this.fetchProducts();
     this.colors = await this.fetchColors();
     this.brands = await this.fetchBrands();
 

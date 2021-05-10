@@ -1,5 +1,5 @@
 <template>
-<router-link :to="{name:'Product1' , params:{id:product.productid}}" >
+<router-link :to="{name:'Product' , params:{id:product.productid}}" >
   <div>
     <div id="productlist" class="p-5 flex flex-col">
       <div class="overflow-hidden w-full relative pb-5">

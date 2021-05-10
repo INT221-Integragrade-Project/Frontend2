@@ -52,6 +52,7 @@ export default {
   async created() {
     this.products = await this.fetchProducts();
     this.brand = await this.fetchBrands();
+    console.log(this.products);
   },
 };
 </script>
