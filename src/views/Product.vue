@@ -1,28 +1,14 @@
 <template>
   <div class="text-center">
     <h1>MOBILE PRODUCTS</h1>
-    <!-- <div id="subnav">
-        <li class="p-2">VIEW PRODUCT</li>
-        <li class="p-2">ADD PRODUCT</li>
-        <li class="p-2">COMPARISON</li>
-    </div> -->
-    <!-- <div id="brand">
-      <select name="brands" id="brands">
-        <option value="default">SELECT BRAND</option>
-        <option value="APPLE">APPLE</option>
-        <option value="OPPO">OPPO</option>
-        <option value="SAMSUNG">SAMSUNG</option>
-        <option value="VIVO">VIVO</option>
-      </select>
-    </div> -->
-    <!-- <div class="flex flex-rows-4"> -->
+    <div class="grid grid-cols-4">
     <product-list
       v-for="product in products"
       :product="product"
       :key="product.productid"
     >
     </product-list>
-    <!-- </div> -->
+    </div>
   </div>
 </template>
 
@@ -66,7 +52,6 @@ export default {
   async created() {
     this.products = await this.fetchProducts();
     this.brand = await this.fetchBrands();
-    console.log(this.id);
   },
 };
 </script>

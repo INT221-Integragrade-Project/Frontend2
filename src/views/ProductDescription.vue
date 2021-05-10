@@ -29,14 +29,7 @@
     </div>
       </span>
     </div>
-    
 
-    <div class="pt-5">
-      <span class="dot mr-2"></span>
-      <span class="dot mr-2"></span>
-      <span class="dot mr-2"></span>
-      <span class="dot mr-2"></span>
-    </div>
   </div>
 </template>
 
@@ -71,11 +64,6 @@ export default {
   },
 
   methods: {
-    // async deleteProduct() {
-    //   const res = await fetch("http://104.215.139.17:3000", {
-    //     method: 'DELETE'
-    //   })
-    // },
     async fetchProduct() {
       try {
         const res = await fetch("http://104.215.139.17:3000/show/" + this.id);
@@ -96,22 +84,35 @@ export default {
         console.log(error);
       }
     },
-    // async fetchColors() {
-    //   try {
-    //     const res = await fetch(
-    //       "http://104.215.139.17:3000/showbrand/" + this.product.brandid
-    //     );
-    //     const data = await res.json();
-    //     return data;
-    //   } catch (error) {
-    //     console.log(error);
-    //   }
-    // },
+    async fetchProductColor() {
+      try {
+        const res = await fetch(
+          "http://104.215.139.17:3000/showproductcolor"
+        );
+        const data = await res.json();
+        return data;
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    deleteProduct() {
+        fetch("http://104.215.139.17:3000/deleteproductid?deleteproductid=" +  this.id , {
+        method:'DELETE'
+        })
+        fetch("http://104.215.139.17:3000/deletefile?imagesdelete=" +  this.product.images , {
+        method:'DELETE'
+        })
+        console.log(this.id);
+        console.log(this.product.images);
+    },
+    editProduct() {
+      this.$router.push('/edit/' + this.id);
+    }
   },
   async created() {
     this.product = await this.fetchProduct();
     this.brand = await this.fetchBrand();
-    // this.colors = await this.fetchColors();
+    this.productcolor = await this.fetchProductColor();
     console.log(this.product);
     console.log(this.brand);
     console.log(Number(this.id));

@@ -6,7 +6,6 @@
         <img :src ="`http://104.215.139.17:3000/file/${product.images}`" width="250"/>
       </div>
       <div id="productdescription" class="">
-        <!-- <p>//image = {{ product.images }}</p> -->
         <p>PRODUCT NAME | {{ product.productname }}</p>
         <p>PRICE : {{ product.price }}</p>
       </div>
@@ -39,8 +38,6 @@ export default {
   outline-width: 1px;
   outline-color: #d3d3d3;
   width: 300px;
-  /* border: 15px; */
-  /* padding: 50px; */
   margin: 20px;
 
   flex: column;

@@ -1,15 +1,9 @@
 <template>
   <div id="nav" class="text-center">
-    <!-- <div class="float-left"> -->
     <router-link to="/" class="mx-5">MOBILE SHOP</router-link>
-    <!-- </div> -->
-    <!-- <div class="float-right"> -->
     <router-link to="/product" class="mx-5">PRODUCTS</router-link>
-    <router-link to="/add" class="mx-5" @click="createNewProduct"
-      >ADD PRODUCT</router-link
-    >
+    <router-link to="/add" class="mx-5">ADD PRODUCT</router-link>
     <router-link to="/team" class="mx-5">TEAM</router-link>
-    <!-- </div> -->
   </div>
   <router-view />
 </template>
@@ -22,7 +16,6 @@ body {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* text-align: center; */
   color: #2c3e50;
 }
 
@@ -43,30 +36,4 @@ body {
 }
 </style>
 
-<script>
-export default {
-  methods: {
-    createNewProduct() {
-      // fetch ("http://104.215.139.17:3000/add")
-      fetch(`http://104.215.139.17:3000/add`, {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: {
-          productid: 0,
-          productname: "",
-          price: 0,
-          warranty: 0,
-          menufacturrerdate: "",
-          capacity: 0,
-          description:"",
-          images: "",
-          brandid: 0,
-        },
-      });
-    },
-  },
-};
-</script>
 
