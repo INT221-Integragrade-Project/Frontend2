@@ -16,7 +16,7 @@
         </p>
         
         <div class="text-center my-10">
-          <input @click="goProductPage" value="PRODUCTS PAGE" class="cursor-pointer btn text-center" />
+          <input @click="goProductPage" value="PRODUCTS PAGE" class="cursor-pointer btn text-center p-5 shadow-md rounded-3xl" />
         </div>
       </div>
     </div>
@@ -46,15 +46,10 @@
   font-weight: bold;
 }
 
-#button {
-  height: 50px;
-  width: 400px;
-  font-weight: bold;
-  font-size: 100%;
-  font-family: Arial;
+input {
   background-color: #FEE9E4;
+  font-weight: bold;
 }
-
 </style>
 
 <script>
