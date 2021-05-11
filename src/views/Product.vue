@@ -20,10 +20,6 @@ export default {
   components: {
     ProductList,
   },
-  props: {
-    type: String,
-    resetpage: Boolean,
-  },
   data() {
     return {
       products: [],

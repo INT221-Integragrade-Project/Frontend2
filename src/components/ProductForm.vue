@@ -230,14 +230,8 @@ export default {
 
         if (this.id) {
           this.editProduct();
-          // setTimeout(() => {
-          //   this.restart();
-          // }, 1000);
         } else {
           this.createNewProduct();
-          // setTimeout(() => {
-          //   this.restart();
-          // }, 1000);
         }
       }
 
@@ -252,18 +246,6 @@ export default {
 
       this.url = `http://104.215.139.17:3000/add?${this.reqparam}`;
 
-    },
-
-    restart() {
-      this.addBrand = 0;
-      this.name = "";
-      this.price = 0;
-      this.warranty = 0;
-      this.menudate = "";
-      this.description = "";
-      this.previewImage = null;
-      this.capacity = 0;
-      this.activeClose = !this.activeClose;
     },
 
     editProduct(body) {
@@ -292,11 +274,6 @@ export default {
       reader.readAsDataURL(file);
     },
 
-    removeImage() {
-      this.previewImage = null;
-      this.activeClose = !this.activeClose;
-    },
-
     async getDataToEdit() {
       if (this.productid != null) {
         fetch(`http://104.215.139.17:3000/show/${this.productid}`)
@@ -304,7 +281,7 @@ export default {
             return res.json();
           })
           .then((data) => {
-            // this.addBrand = data.brand.brandName;
+            this.addBrand = data.brand.brandName;
             this.name = data.productName;
             this.price = data.price;
             this.description = data.description;
@@ -314,20 +291,17 @@ export default {
           })
           .catch((error) => console.log(error));
       } else {
-        this.restart();
+        // this.restart();
         this.isLoad = false;
       }
     },
-    uploadImage() {
-      fetch(`http://104.215.139.17:3000/upload/${this.image}` , {
-        method: "POST",
-      }).catch((error) => console.log(error));
 
-    },
     createNewProduct() {
-      this.uploadImage();
+      fetch(`http://104.215.139.17:3000/upload?images=`+this.image , {
+      method: "POST",
+      })
       fetch( this.url , {
-        method: "POST",
+      method: "POST",
       }).catch((error) => console.log(error));
 
     },
