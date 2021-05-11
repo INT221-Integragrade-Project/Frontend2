@@ -215,16 +215,6 @@ export default {
         this.previewImage !== null &&
         this.capacity !== 0
       ) {
-        // let body = JSON.stringify({
-        //   productname: this.name,
-        //   brandid: Number(this.brandid),
-        //   price: Number(this.price),
-        //   description: this.description,
-        //   warranty: Number(this.warranty),
-        //   menudate: this.menudate,
-        //   capacity: Number(this.capacity),
-        //   image: this.image,
-        // });
 
         this.reqparam = `productname=${this.name}&price=${this.price}&warranty=${this.warranty}&menufacturrerdate=${this.menudate}&capacity=${this.capacity}&description=${this.description}&images=${this.image}&brandid=${this.addBrand}`;
 
@@ -248,13 +238,12 @@ export default {
 
     },
 
-    editProduct(body) {
+    editProduct() { // *****
       fetch("http://104.215.139.17:3000/edit/" + this.id , {
         method: "PUT",
         headers: {
           "content-type": "application/json",
         },
-        body: body,
       }).catch((error) => console.log(error));
     },
 
@@ -274,7 +263,7 @@ export default {
       reader.readAsDataURL(file);
     },
 
-    async getDataToEdit() {
+    async getDataToEdit() { //*****
       if (this.productid != null) {
         fetch(`http://104.215.139.17:3000/show/${this.productid}`)
           .then((res) => {
@@ -291,7 +280,6 @@ export default {
           })
           .catch((error) => console.log(error));
       } else {
-        // this.restart();
         this.isLoad = false;
       }
     },
