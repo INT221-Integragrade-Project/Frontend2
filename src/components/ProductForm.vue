@@ -300,8 +300,6 @@ export default {
     },
 
     createNewProduct() {
-      console.log(this.addImage);
-      console.log(this.addImage.name);
       this.uploadImage(this.addImage);
       fetch( this.url , {
       method: "POST",
