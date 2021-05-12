@@ -161,7 +161,6 @@ export default {
       invalid_date: false,
       invalid_img: false,
       invalid_capacity: false,
-      colorparam: "",
       brandid: 0,
       isLoad: Boolean,
       reqparam: "",
