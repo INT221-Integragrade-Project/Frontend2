@@ -150,6 +150,7 @@ export default {
       description: "",
       capacity: 0 ,
       image: "",
+      addImage: null,
       previewImage: null,
       activeClose: false,
       colors: [],
@@ -249,6 +250,7 @@ export default {
     onFileChange(event) {
       let files = event.target.files || event.dataTransfer.files;
       this.image = files[0].name;
+      this.addImage = files[0];
       if (!files.length) return;
       this.createImage(files[0]);
       this.activeClose = true;
@@ -288,15 +290,24 @@ export default {
       }
     },
 
-    createNewProduct() {
-      fetch(`http://104.215.139.17:3000/upload?images=`+this.image , {
-      method: "POST",
+    uploadImage(file) {
+      var data = new FormData()
+      data.append('file',file,file.name)
+      fetch("http://104.215.139.17:3000/upload", {
+      method: 'POST',
+      body: data
       })
+    },
+
+    createNewProduct() {
+      console.log(this.addImage);
+      console.log(this.addImage.name);
+      this.uploadImage(this.addImage);
       fetch( this.url , {
       method: "POST",
       }).catch((error) => console.log(error));
-
     },
+
     async fetchProducts() {
       try {
         const res = await fetch("http://104.215.139.17:3000/show");
