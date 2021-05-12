@@ -151,7 +151,7 @@ export default {
       capacity: 0 ,
       image: "",
       previewImage: null,
-      activeClose: true,
+      activeClose: false,
       colors: [],
       newColors: new Array(12),
       invalid_brand: false,
@@ -262,6 +262,11 @@ export default {
       reader.readAsDataURL(file);
     },
 
+    removeImage() {
+      this.previewImage = null;
+      this.activeClose = !this.activeClose;
+    },
+    
     async getDataToEdit() { //*****
       if (this.productid != null) {
         fetch(`http://104.215.139.17:3000/show/${this.productid}`)
